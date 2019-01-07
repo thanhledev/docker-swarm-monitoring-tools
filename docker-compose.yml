@@ -3,6 +3,10 @@ version: '3'
 services:
   influx:
     image: influxdb
+    ports:
+       - "8083:8083"
+       - "8086:8086"
+       - "8090:8090"
     volumes:
       - influx:/var/lib/influxdb
     deploy:
@@ -14,7 +18,7 @@ services:
   grafana:
     image: grafana/grafana
     ports:
-      - 0.0.0.0:80:3000
+       -"3000:3000"
     volumes:
       - grafana:/var/lib/grafana
     depends_on:
